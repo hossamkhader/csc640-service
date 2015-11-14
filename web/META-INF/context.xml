@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="">
+    <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxActive="100" maxIdle="30" maxWait="10000" name="jdbc/csc640" password="dHT1m-quDgu4" type="javax.sql.DataSource" url="jdbc:mysql://127.10.159.130:3306/csc640" username="adminWZ1pWfW"/>
+</Context>
