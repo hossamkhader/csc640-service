@@ -1,15 +1,19 @@
 package actors;
 
 import java.io.Serializable;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.hibernate.annotations.DiscriminatorOptions;
 
@@ -33,7 +37,10 @@ public class Monitor implements Serializable {
     @Column(name = "note")
     private String note;
     
-    
+    @OneToMany(fetch=FetchType.EAGER)
+    @JoinColumn(name="id")
+    private Set<MonitorResponse> monitorResponse;
+
     public Monitor()
     {
         
@@ -72,5 +79,13 @@ public class Monitor implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+   
+    public Set<MonitorResponse> getMonitorResponse() {
+        return monitorResponse;
+    }
+
+    public void setMonitorResponse(Set<MonitorResponse> monitorResponse) {
+        this.monitorResponse = monitorResponse;
     }
 }
